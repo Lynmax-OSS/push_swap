@@ -1,0 +1,29 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: keteo <keteo@student.42kl.edu.my>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/05/04 18:53:20 by keteo             #+#    #+#             */
+/*   Updated: 2025/05/04 18:53:20 by keteo            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef PUSH_SWAP_H
+# define PUSH_SWAP_H
+
+typedef struct s_node
+{
+    int             value;
+    int             index;
+    struct s_node   *next;
+}t_node;
+
+typedef struct s_stack
+{
+    t_node  *top;
+    int     size;
+}t_stack;
+
+#endif
