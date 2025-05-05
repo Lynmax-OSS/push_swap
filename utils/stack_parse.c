@@ -31,6 +31,32 @@ void parse_stack(t_stack *a, char **argv)
     int     i;
     long    val;
     t_node  *tmp;
+    t_node  *new;
 
-    
+    i = 1;
+    while (argv[i])
+    {
+        if (!is_number(argv[i]))
+            error("Not a number\n");
+        val = ft_atoi(argv[i]);
+        if (val < INT_MIN || val > INT_MAX)
+            error("Over/under the int limit\n");
+        new = malloc(sizeof(t_node))
+        if (!new)
+            error("Malloc failed\n");
+        new->value = (int)val;
+        new->index = -i;
+        new->next = NULL;
+        tmp = a->top;
+        while (tmp)
+        {
+            if (tmp->value == new->value)
+                error("Duplicate numbers\n")
+            tmp = tmp->next;
+        }
+        new->next = a->top;
+        a->top = new;
+        a->size++;
+        i++;
+    }
 }
