@@ -26,6 +26,20 @@ int is_number(char *str)
     return (1);
 }
 
+int is_duplicate(t_node *top, int value)
+{
+    t_node *tmp;
+
+    tmp = top;
+    while (tmp)
+    {
+        if (tmp->value == value)
+            return (1);
+        tmp = tmp->next;
+    }
+    return (0);
+}
+
 void parse_stack(t_stack *a, char **argv)
 {
     int     i;
@@ -48,11 +62,10 @@ void parse_stack(t_stack *a, char **argv)
         new->index = -i;
         new->next = NULL;
         tmp = a->top;
-        while (tmp)
+        if (is_duplicate(tmp, new->value))
         {
-            if (tmp->value == new->value)
-                error("Duplicate numbers\n")
-            tmp = tmp->next;
+            free(new);
+            error("Duplicate numbers\n");
         }
         new->next = a->top;
         a->top = new;
