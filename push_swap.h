@@ -12,6 +12,7 @@
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
+# include "./libft/libft.h"
 
 typedef struct s_node
 {
@@ -25,5 +26,7 @@ typedef struct s_stack
     t_node  *top;
     int     size;
 }t_stack;
+
+void    error(char *str);
 
 #endif
