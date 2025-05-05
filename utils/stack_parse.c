@@ -10,6 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../push_swap.h"
+
 int is_number(char *str)
 {
     int i;
@@ -72,4 +74,20 @@ void parse_stack(t_stack *a, char **argv)
         a->size++;
         i++;
     }
+}
+
+void parse_args(t_stack *a, int argc, char **argv) //this is if they want to pass a single string instead of multiple args
+{
+    if (argc < 2)
+        error("Not enough arguments\n");
+    if (argc == 2)
+    {
+        char **args = ft_split(argv[1], ' ');
+        if (!args)
+            error("Malloc failed\n");
+        parse_stack(a, args);
+        free(args);
+    }
+    else
+        parse_stack(a, argv);
 }
