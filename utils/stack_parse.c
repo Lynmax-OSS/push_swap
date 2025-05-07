@@ -12,82 +12,86 @@
 
 #include "../push_swap.h"
 
-int is_number(char *str)
+static int is_number(char *str)
 {
-    int i;
+	int i;
 
-    i = 0;
-    if ((str[0] == '-' || str[0] == '+') && str[1])
-        i++;
-    while (str[i])
-    {
-        if (!ft_isdigit(str[i]))
-            return (0);
-        i++;
-    }
-    return (1);
+	i = 0;
+	if ((str[0] == '-' || str[0] == '+') && str[1])
+		i++;
+	while (str[i])
+	{
+		if (!ft_isdigit(str[i]))
+			return (0);
+		i++;
+	}
+	return (1);
 }
 
-int is_duplicate(t_node *top, int value)
+static int is_duplicate(t_node *top, int value)
 {
-    t_node *tmp;
+	t_node *tmp;
 
-    tmp = top;
-    while (tmp)
-    {
-        if (tmp->value == value)
-            return (1);
-        tmp = tmp->next;
-    }
-    return (0);
+	tmp = top;
+	while (tmp)
+	{
+		if (tmp->value == value)
+			return (1);
+		tmp = tmp->next;
+	}
+	return (0);
 }
+
 
 void parse_stack(t_stack *a, char **argv)
 {
-    int     i;
-    long    val;
-    t_node  *tmp;
-    t_node  *new;
+	int     i;
+	long    val;
+	t_node  *tmp;
+	t_node  *new;
 
-    i = 1;
-    while (argv[i])
-    {
-        if (!is_number(argv[i]))
-            error("Not a number\n");
-        val = ft_atoi(argv[i]);
-        if (val < INT_MIN || val > INT_MAX)
-            error("Over/under the int limit\n");
-        new = malloc(sizeof(t_node))
-        if (!new)
-            error("Malloc failed\n");
-        new->value = (int)val;
-        new->index = -i;
-        new->next = NULL;
-        tmp = a->top;
-        if (is_duplicate(tmp, new->value))
-        {
-            free(new);
-            error("Duplicate numbers\n");
-        }
-        new->next = a->top;
-        a->top = new;
-        a->size++;
-        i++;
-    }
+	i = 1;
+	while (argv[i])
+	{
+		if (!is_number(argv[i]))
+			error("Not a number\n");
+		val = ft_atoi(argv[i]);
+		if (val < INT_MIN || val > INT_MAX)
+			error("Over/under the int limit\n");
+		new = malloc(sizeof(t_node))
+		if (!new)
+			error("Malloc failed\n");
+		new->value = (int)val;
+		new->index = -i;
+		new->next = NULL;
+		tmp = a->top;
+		if (is_duplicate(tmp, new->value))
+		{
+			free(new);
+			error("Duplicate numbers\n");
+		}
+		new->next = a->top;
+		a->top = new;
+		a->size++;
+		i++;
+	}
 }
 
-void parse_args(t_stack *a, int argc, char **argv) //this is if they want to pass a single string instead of multiple args
+
+//this is if they want to pass a single string instead of multiple args
+void parse_args(t_stack *a, int argc, char **argv)
 {
-    if (argc < 2)
-        error("Not enough arguments\n");
-    if (argc == 2)
-    {
-        char **args = ft_split(argv[1], ' ');
-        if (!args)
-            error("Malloc failed\n");
-        parse_stack(a, args);
-        free(args);
-    }
-    else
-        parse_stack(a, argv);
+	if (argc < 2)
+		error("Not enough arguments\n");
+	if (argc == 2)
+	{
+		char **args = ft_split(argv[1], ' ');
+		if (!args)
+			error("Malloc failed\n");
+		parse_stack(a, args);
+		free(args);
+	}
+	else
+		parse_stack(a, argv);
 }
+
