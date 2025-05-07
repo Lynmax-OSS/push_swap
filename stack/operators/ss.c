@@ -18,4 +18,5 @@ void    ss(t_stack **a, t_stack **b)
         return ;
     swap(a);
     swap(b);
+    ft_putstr_fd("ss\n", 1);
 }

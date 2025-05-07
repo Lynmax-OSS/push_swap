@@ -1,21 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sb.c                                               :+:      :+:    :+:   */
+/*   rrr.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: keteo <keteo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/07 14:52:45 by keteo             #+#    #+#             */
-/*   Updated: 2025/05/07 14:52:45 by keteo            ###   ########.fr       */
+/*   Created: 2025/05/07 15:46:36 by keteo             #+#    #+#             */
+/*   Updated: 2025/05/07 15:46:36 by keteo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../push_swap.h"
 
-void sb(t_stack **b)
+void    rrr(t_stack **a, t_stack **b)
 {
-    if (!b)
+    if (!a || !*a || !b || !*b)
         return ;
-    swap(b);
-    ft_putstr_fd("sb", 1);
+    reverse_rotate(a);
+    reverse_rotate(b);
+    ft_putstr_fd("rrr\n", 1);
 }

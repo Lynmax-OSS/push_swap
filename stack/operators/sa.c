@@ -17,4 +17,5 @@ void sa(t_stack **a)
     if (!a)
         return ;
     swap(a);
+    ft_putstr_fd("sa\n", 1);
 }
