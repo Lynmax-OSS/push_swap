@@ -12,13 +12,13 @@
 
 #include "../push_swap.h"
 
-void    append_node(t_stack **a, t_stack *node)
+void	append_node(t_stack **a, t_stack *node)
 {
-	t_stack *temp;
+	t_stack	*temp;
 
-	if (!*a) 
+	if (!*a)
 		*a = node;
-	else 
+	else
 	{
 		temp = *a;
 		while (temp->next)

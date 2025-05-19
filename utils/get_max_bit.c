@@ -14,7 +14,7 @@
 
 int	get_max_bits(int max)
 {
-	int bits;
+	int	bits;
 
 	bits = 0;
 	while ((max >> bits) != 0)

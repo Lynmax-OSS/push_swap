@@ -12,9 +12,9 @@
 
 #include "../push_swap.h"
 
-int stack_size(t_stack *a)
+int	stack_size(t_stack *a)
 {
-	int count;
+	int	count;
 
 	count = 0;
 	while (a)

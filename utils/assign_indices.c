@@ -12,20 +12,20 @@
 
 #include "../push_swap.h"
 
-void    assign_indices(t_stack *a)
+void	assign_indices(t_stack *a)
 {
-    int size;
-    int *arr;
-    t_stack *temp;
+	int		size;
+	int		*arr;
+	t_stack	*temp;
 
-    size = stack_size(a);
-    arr = stack_to_array(a, size);
-    sort_array(arr, size);
-    temp = a;
-    while (temp)
-    {
-        temp->index = find_index(arr, temp->value, size);
-        temp = temp->next;
-    }
-    free(arr);
+	size = stack_size(a);
+	arr = stack_to_array(a, size);
+	sort_array(arr, size);
+	temp = a;
+	while (temp)
+	{
+		temp->index = find_index(arr, temp->value, size);
+		temp = temp->next;
+	}
+	free(arr);
 }

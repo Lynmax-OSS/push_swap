@@ -14,7 +14,7 @@
 
 void	free_stack(t_stack **a)
 {
-	t_stack *temp;
+	t_stack	*temp;
 
 	while (*a)
 	{

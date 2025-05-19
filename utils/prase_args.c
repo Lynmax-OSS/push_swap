@@ -15,13 +15,13 @@
 int	is_number(char *str)
 {
 	if (!*str || ((*str == '-' || *str == '+') && !str[1]))
-		return 0;
+		return (0);
 	if (*str == '-' || *str == '+')
 		str++;
 	while (*str)
 	{
 		if (*str < '0' || *str > '9')
-			return 0;
+			return (0);
 		str++;
 	}
 	return (1);
@@ -29,8 +29,8 @@ int	is_number(char *str)
 
 void	handle_split(char *arg, t_stack **a)
 {
-	char **nums;
-	int i;
+	char	**nums;
+	int		i;
 
 	i = 0;
 	nums = ft_split(arg, ' ');
@@ -49,7 +49,7 @@ void	handle_split(char *arg, t_stack **a)
 
 void	parse_args(int argc, char **argv, t_stack **a)
 {
-	int i;
+	int	i;
 
 	i = 1;
 	while (i < argc)

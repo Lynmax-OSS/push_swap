@@ -25,5 +25,5 @@ int	*stack_to_array(t_stack *a, int size)
 		i++;
 		a = a->next;
 	}
-	return arr;
+	return (arr);
 }

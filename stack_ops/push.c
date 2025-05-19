@@ -14,16 +14,17 @@
 
 void	push(t_stack **from, t_stack **to)
 {
-	t_stack *temp;
+	t_stack	*temp;
 
-	if (!*from) return;
+	if (!*from)
+		return ;
 	temp = *from;
 	*from = (*from)->next;
 	temp->next = *to;
 	*to = temp;
 }
 
-void	pa(t_stack **a, t_stack **b) 
+void	pa(t_stack **a, t_stack **b)
 {
 	push(b, a);
 	write(1, "pa\n", 3);

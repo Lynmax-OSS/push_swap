@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	t_stack	*a;
 	t_stack	*b;
@@ -26,5 +26,5 @@ int main(int argc, char **argv)
 	if (!is_sorted(a))
 		radix_sort(&a, &b);
 	free_stack(&a);
-	return 0;
+	return (0);
 }

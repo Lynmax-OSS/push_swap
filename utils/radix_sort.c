@@ -22,9 +22,11 @@ void	radix_sort(t_stack **a, t_stack **b)
 	size = stack_size(*a);
 	max_bits = get_max_bits(size);
 	i = 0;
-	while (i < max_bits) {
+	while (i < max_bits)
+	{
 		j = 0;
-		while (j < size) {
+		while (j < size)
+		{
 			if (((*a)->index >> i) & 1)
 				ra(a);
 			else
