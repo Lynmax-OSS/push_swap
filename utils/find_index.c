@@ -1,19 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   find_index.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: keteo <keteo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/05 14:04:56 by keteo             #+#    #+#             */
-/*   Updated: 2025/05/05 14:04:56 by keteo            ###   ########.fr       */
+/*   Created: 2025/05/16 00:05:08 by keteo             #+#    #+#             */
+/*   Updated: 2025/05/16 00:05:08 by keteo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void    error(char *str)
+int	find_index(int *arr, int val, int size)
 {
-    ft_putstr_fd(str, 2);
-    exit (EXIT_FAILURE);
+	int	i;
+
+	i = 0;
+	while (i < size)
+	{
+		if (arr[i] == val)
+			return (i);
+		i++;
+	}
+	return (-1);
 }

@@ -1,30 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   new_node.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: keteo <keteo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/16 00:07:04 by keteo             #+#    #+#             */
-/*   Updated: 2025/05/16 00:07:04 by keteo            ###   ########.fr       */
+/*   Created: 2025/05/16 00:00:59 by keteo             #+#    #+#             */
+/*   Updated: 2025/05/16 00:00:59 by keteo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-int main(int argc, char **argv)
+t_stack	*new_node(int value)
 {
-	t_stack	*a;
-	t_stack	*b;
+	t_stack	*node;
 
-	a = NULL;
-	b = NULL;
-	if (argc < 2)
-		return (0);
-	parse_args(argc, argv, &a);
-	assign_indices(a);
-	if (!is_sorted(a))
-		radix_sort(&a, &b);
-	free_stack(&a);
-	return 0;
+	node = malloc(sizeof(t_stack));
+	if (!node) return NULL;
+	node->value = value;
+	node->index = -1;
+	node->next = NULL;
+	return (node);
 }

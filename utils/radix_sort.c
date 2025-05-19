@@ -1,30 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   radix_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: keteo <keteo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/16 00:07:04 by keteo             #+#    #+#             */
-/*   Updated: 2025/05/16 00:07:04 by keteo            ###   ########.fr       */
+/*   Created: 2025/05/19 15:46:24 by keteo             #+#    #+#             */
+/*   Updated: 2025/05/19 15:46:24 by keteo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-int main(int argc, char **argv)
+void	radix_sort(t_stack **a, t_stack **b)
 {
-	t_stack	*a;
-	t_stack	*b;
+	int	size;
+	int	max_bits;
+	int	i;
+	int	j;
 
-	a = NULL;
-	b = NULL;
-	if (argc < 2)
-		return (0);
-	parse_args(argc, argv, &a);
-	assign_indices(a);
-	if (!is_sorted(a))
-		radix_sort(&a, &b);
-	free_stack(&a);
-	return 0;
+	size = stack_size(*a);
+	max_bits = get_max_bits(size);
+	i = 0;
+	while (i < max_bits) {
+		j = 0;
+		while (j < size) {
+			if (((*a)->index >> i) & 1)
+				ra(a);
+			else
+				pb(a, b);
+			j++;
+		}
+		while (*b)
+			pa(a, b);
+		i++;
+	}
 }

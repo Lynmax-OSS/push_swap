@@ -1,30 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: keteo <keteo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/16 00:07:04 by keteo             #+#    #+#             */
-/*   Updated: 2025/05/16 00:07:04 by keteo            ###   ########.fr       */
+/*   Created: 2025/05/14 14:09:10 by keteo             #+#    #+#             */
+/*   Updated: 2025/05/14 14:09:10 by keteo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-int main(int argc, char **argv)
+void	push(t_stack **from, t_stack **to)
 {
-	t_stack	*a;
-	t_stack	*b;
+	t_stack *temp;
 
-	a = NULL;
-	b = NULL;
-	if (argc < 2)
-		return (0);
-	parse_args(argc, argv, &a);
-	assign_indices(a);
-	if (!is_sorted(a))
-		radix_sort(&a, &b);
-	free_stack(&a);
-	return 0;
+	if (!*from) return;
+	temp = *from;
+	*from = (*from)->next;
+	temp->next = *to;
+	*to = temp;
+}
+
+void	pa(t_stack **a, t_stack **b) 
+{
+	push(b, a);
+	write(1, "pa\n", 3);
+}
+
+void	pb(t_stack **a, t_stack **b)
+{
+	push(a, b);
+	write(1, "pb\n", 3);
 }

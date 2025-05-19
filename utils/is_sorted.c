@@ -5,23 +5,20 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: keteo <keteo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/05 16:56:01 by keteo             #+#    #+#             */
-/*   Updated: 2025/05/05 16:56:01 by keteo            ###   ########.fr       */
+/*   Created: 2025/05/16 00:30:05 by keteo             #+#    #+#             */
+/*   Updated: 2025/05/16 00:30:05 by keteo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int is_sorted(t_stack *stack)
+int	is_sorted(t_stack *a)
 {
-	t_node	*current;
-	t_node	*next;
-	
-	while (current && current->next)
+	while (a && a->next)
 	{
-		if (current->value > next->value)
-			return (0);
-		current = current->next;
+		if (a->value > a->next->value)
+			return 0;
+		a = a->next;
 	}
 	return (1);
 }

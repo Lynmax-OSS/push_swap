@@ -1,30 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   stack_to_array.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: keteo <keteo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/16 00:07:04 by keteo             #+#    #+#             */
-/*   Updated: 2025/05/16 00:07:04 by keteo            ###   ########.fr       */
+/*   Created: 2025/05/16 00:04:08 by keteo             #+#    #+#             */
+/*   Updated: 2025/05/16 00:04:08 by keteo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-int main(int argc, char **argv)
+int	*stack_to_array(t_stack *a, int size)
 {
-	t_stack	*a;
-	t_stack	*b;
+	int	*arr;
+	int	i;
 
-	a = NULL;
-	b = NULL;
-	if (argc < 2)
-		return (0);
-	parse_args(argc, argv, &a);
-	assign_indices(a);
-	if (!is_sorted(a))
-		radix_sort(&a, &b);
-	free_stack(&a);
-	return 0;
+	i = 0;
+	arr = malloc(sizeof(int) * size);
+	while (i < size && a)
+	{
+		arr[i] = a->value;
+		i++;
+		a = a->next;
+	}
+	return arr;
 }
