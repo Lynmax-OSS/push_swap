@@ -19,9 +19,9 @@ void	sort_array(int *arr, int size)
 	int	tmp;
 
 	i = 0;
-	j = 0;
 	while (i < size - 1)
 	{
+		j = 0;
 		while (j < size - i - 1)
 		{
 			if (arr[j] > arr[j + 1])
@@ -30,6 +30,8 @@ void	sort_array(int *arr, int size)
 				arr[j] = arr[j + 1];
 				arr[j + 1] = tmp;
 			}
+			j++;
 		}
+		i++;
 	}
 }
