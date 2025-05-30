@@ -27,10 +27,22 @@ int	is_number(char *str)
 	return (1);
 }
 
+int	is_duplicate(t_stack *a, int value)
+{
+	while (a)
+	{
+		if (a->value == value)
+			return (1);
+		a = a->next;
+	}
+	return (0);
+}
+
 void	handle_split(char *arg, t_stack **a)
 {
 	char	**nums;
 	int		i;
+	int		num;
 
 	i = 0;
 	nums = ft_split(arg, ' ');
@@ -38,11 +50,21 @@ void	handle_split(char *arg, t_stack **a)
 	{
 		if (!is_number(nums[i]))
 		{
+			ft_printf("Error\n");
 			free_split(nums);
 			free_stack(a);
 			exit(1);
 		}
-		append_node(a, new_node(ft_atoi(nums[i++])));
+		num = ft_atoi(nums[i]);
+		if (num > INT_MAX || num < INT_MIN || is_duplicate(*a, num))
+		{
+			ft_printf("Error\n");
+			free_split(nums);
+			free_stack(a);
+			exit(1);
+		}
+		append_node(a, new_node(num));
+		i++;
 	}
 	free_split(nums);
 }
@@ -50,6 +72,7 @@ void	handle_split(char *arg, t_stack **a)
 void	parse_args(int argc, char **argv, t_stack **a)
 {
 	int	i;
+	int	num;
 
 	i = 1;
 	while (i < argc)
@@ -60,10 +83,18 @@ void	parse_args(int argc, char **argv, t_stack **a)
 		{
 			if (!is_number(argv[i]))
 			{
+				ft_printf("Error\n");
 				free_stack(a);
 				exit(1);
 			}
-			append_node(a, new_node(ft_atoi(argv[i])));
+			num = ft_atoi(argv[i]);
+			if (num > INT_MAX || num < INT_MIN || is_duplicate(*a, num))
+			{
+				ft_printf("Error\n");
+				free_stack(a);
+				exit(1);
+			}
+			append_node(a, new_node(num));
 		}
 		i++;
 	}
