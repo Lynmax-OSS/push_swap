@@ -6,7 +6,7 @@
 /*   By: keteo <keteo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 14:58:58 by keteo             #+#    #+#             */
-/*   Updated: 2025/05/26 13:36:37 by keteo            ###   ########.fr       */
+/*   Updated: 2025/05/31 01:06:06 by keteo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,5 +79,6 @@ void	ft_putunnbr_count(unsigned int nb, int *count);
 void	ft_putptr_count(size_t ptr, int *count);
 void	ft_puthex_count(unsigned int hex, int *count, char x_or_x);
 int		ft_printf(const char *format, ...);
+long	ft_atol(const char *str);
 
 #endif
