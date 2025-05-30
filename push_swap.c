@@ -24,7 +24,12 @@ int	main(int argc, char **argv)
 	parse_args(argc, argv, &a);
 	assign_indices(a);
 	if (!is_sorted(a))
-		radix_sort(&a, &b);
+	{
+		if (stack_size(a) <= 5)
+			sort_small(&a, &b, stack_size(a));
+		else
+			radix_sort(&a, &b);
+	}
 	free_stack(&a);
 	return (0);
 }

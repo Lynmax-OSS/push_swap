@@ -56,5 +56,6 @@ void	handle_split(char *arg, t_stack **a);
 
 // Sort
 void	radix_sort(t_stack **a, t_stack **b);
+void	sort_small(t_stack **a, t_stack **b, int size);
 
 #endif
