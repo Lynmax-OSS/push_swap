@@ -45,7 +45,7 @@ void	sort_four(t_stack **a, t_stack **b)
 	int	min_pos;
 
 	min_pos = get_position(*a, 0);
-	rotate_to_top(a, min_pos, 'a');
+	rotate_to_top(a, min_pos);
 	pb(a, b);
 	sort_three(a);
 	pa(a, b);
@@ -56,10 +56,10 @@ void	sort_five(t_stack **a, t_stack **b)
 	int	min_pos;
 	
 	min_pos = get_position(*a, 0);
-	rotate_to_top(a, min_pos, 'a');
+	rotate_to_top(a, min_pos);
 	pb(a, b);
 	min_pos = get_position(*a, 1);
-	rotate_to_top(a, min_pos, 'a');
+	rotate_to_top(a, min_pos);
 	pb(a, b);
 	sort_three(a);
 	pa(a, b);

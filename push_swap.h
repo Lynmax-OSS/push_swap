@@ -53,7 +53,7 @@ void	free_split(char **split);
 void	parse_args(int argc, char **argv, t_stack **a);
 int		is_number(char *str);
 void	handle_split(char *arg, t_stack **a);
-void	rotate_to_top(t_stack **stack, int pos, char name);
+void	rotate_to_top(t_stack **stack, int pos);
 int		get_position(t_stack *stack, int index);
 
 // Sort
