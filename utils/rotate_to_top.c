@@ -43,7 +43,7 @@
 void	rotate_to_top(t_stack **a, int pos)
 {
 	int	size ;
-	
+
 	size = stack_size(*a);
 	if (pos <= size / 2)
 		while (pos-- > 0)
