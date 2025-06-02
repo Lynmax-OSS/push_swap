@@ -40,7 +40,7 @@ int	is_duplicate(t_stack *a, int value)
 
 int	is_valid(long num, t_stack *a)
 {
-	if (num >= INT_MAX || num <= INT_MIN || is_duplicate(a, (int)num))
+	if (num > INT_MAX || num < INT_MIN || is_duplicate(a, (int)num))
 	{
 		ft_printf("Error\n");
 		free_stack(&a);
