@@ -21,7 +21,6 @@ void	sort_three(t_stack **a)
 	x = (*a)->index;
 	y = (*a)->next->index;
 	z = (*a)->next->next->index;
-
 	if (x > y && y < z && x < z)
 		sa(a);
 	else if (x > y && y > z)
@@ -54,7 +53,7 @@ void	sort_four(t_stack **a, t_stack **b)
 void	sort_five(t_stack **a, t_stack **b)
 {
 	int	min_pos;
-	
+
 	min_pos = get_position(*a, 0);
 	rotate_to_top(a, min_pos);
 	pb(a, b);
