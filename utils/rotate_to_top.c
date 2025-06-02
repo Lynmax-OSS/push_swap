@@ -40,16 +40,17 @@
 // 	}
 // }
 
-void rotate_to_top(t_stack **a, int pos)
+void	rotate_to_top(t_stack **a, int pos)
 {
-    int size = stack_size(*a);
-    if (pos <= size / 2)
-        while (pos-- > 0)
-            ra(a);
-    else
-    {
-        pos = size - pos;
-        while (pos-- > 0)
-            rra(a);
-    }
+	int	size ;
+	size = stack_size(*a);
+	if (pos <= size / 2)
+		while (pos-- > 0)
+			ra(a);
+	else
+	{
+		pos = size - pos;
+		while (pos-- > 0)
+			rra(a);
+	}
 }

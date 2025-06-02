@@ -38,6 +38,17 @@ int	is_duplicate(t_stack *a, int value)
 	return (0);
 }
 
+int	is_valid(long num, t_stack *a)
+{
+	if (num >= INT_MAX || num <= INT_MIN || is_duplicate(a, (int)num))
+	{
+		ft_printf("Error\n");
+		free_stack(&a);
+		exit(1);
+	}
+	return (1);
+}
+
 void	handle_split(char *arg, t_stack **a)
 {
 	char	**nums;
@@ -56,13 +67,7 @@ void	handle_split(char *arg, t_stack **a)
 			exit(1);
 		}
 		num = ft_atol(nums[i]);
-		if (num > INT_MAX || num < INT_MIN || is_duplicate(*a, (int)num))
-		{
-			ft_printf("Error\n");
-			free_split(nums);
-			free_stack(a);
-			exit(1);
-		}
+		is_valid(num, *a);
 		append_node(a, new_node((int)num));
 		i++;
 	}
@@ -71,7 +76,7 @@ void	handle_split(char *arg, t_stack **a)
 
 void	parse_args(int argc, char **argv, t_stack **a)
 {
-	int	i;
+	int		i;
 	long	num;
 
 	i = 1;
@@ -88,12 +93,7 @@ void	parse_args(int argc, char **argv, t_stack **a)
 				exit(1);
 			}
 			num = ft_atol(argv[i]);
-			if (num >= INT_MAX || num <= INT_MIN || is_duplicate(*a, (int)num))
-			{
-				ft_printf("Error\n");
-				free_stack(a);
-				exit(1);
-			}
+			is_valid(num, *a);
 			append_node(a, new_node((int)num));
 		}
 		i++;

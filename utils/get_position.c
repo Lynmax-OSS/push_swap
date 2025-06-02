@@ -14,7 +14,7 @@
 
 int	get_position(t_stack *stack, int index)
 {
-	int	pos;
+	int		pos;
 	t_stack	*temp;
 
 	pos = 0;
@@ -22,7 +22,7 @@ int	get_position(t_stack *stack, int index)
 	while (temp)
 	{
 		if (temp->index == index)
-			break;
+			break ;
 		pos++;
 		temp = temp->next;
 	}
